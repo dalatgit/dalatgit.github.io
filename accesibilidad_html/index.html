@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Accesibilidad HTML - DALAT Git Web</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/docco.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">DALAT Git Web</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Bienvenidos</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Accesibilidad HTML</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../acerca/" class="nav-link">Acerca de</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../recursos/" class="nav-link">Recursos</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Buscar
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Anterior
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../acerca/" class="nav-link">
+                                    Siguiente <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#accesibilidad-html" class="nav-link">Accesibilidad HTML</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#estructura-basica-de-html" class="nav-link">Estructura básica de HTML</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#cabeceras" class="nav-link">Cabeceras</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#agregar-texto-alternativo-en-imagenes" class="nav-link">Agregar texto alternativo en imágenes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#enlaces" class="nav-link">Enlaces</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#listados" class="nav-link">Listados</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#formularios" class="nav-link">Formularios</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#tablas" class="nav-link">Tablas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="accesibilidad-html">Accesibilidad HTML</h1>
+<p>Aquí encontrarás ejemplos de como aplicar accesibilidad en HTML</p>
+<h2 id="estructura-basica-de-html">Estructura básica de HTML</h2>
+<p>Por favor indica el idioma y la codificación UTF-8 al momento de establecer la base HTML sobre la cual vas a construir tu sitio web.</p>
+<pre><code class="language-html">&lt;html lang=&quot;es&quot;&gt;
+   &lt;head&gt; &lt;!–– estilos, metatags, scrips ––&gt;
+      &lt;title&gt;Título&lt;/title&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;h1&gt;Encabezado principal&lt;/h1&gt;
+      &lt;p&gt;Cuerpo&lt;/p&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="cabeceras">Cabeceras</h2>
+<p>Los encabezados se deben utilizar como título de distintos niveles para que el lector de pantalla pueda interpretar la importancia de los contenidos. Por ejemplo: nivel 1, encabezado 1. Nivel 2, encabezado 2. Se debe utilizar solo un encabezado h1 por página. No se deben utilizar para darle formato al texto, es decir, es una mala práctica utilizar los encabezados para poner un texto más grande que otro.</p>
+<pre><code class="language-html">&lt;h1&gt;Encabezado principal&lt;/h1&gt;
+
+&lt;h2&gt;Encabezado secundario 1&lt;/h2&gt;
+&lt;h3&gt;subtítulo uno&lt;/h3&gt;
+
+&lt;h2&gt;Encabezado secundario 2&lt;/h2&gt;
+&lt;h3&gt;subtítulo dos&lt;/h3&gt;
+</code></pre>
+<h2 id="agregar-texto-alternativo-en-imagenes">Agregar texto alternativo en imágenes</h2>
+<p>Podemos utilizar la etiqueta <alt> para añadir un texto alternativo a las imágenes, el cual debe ser una descripción de la misma.
+Esto también sirve, no solo para utilizarse con el lector de pantalla, sino en el caso de por ejemplo conexiones lentas, dicha descripción aparecerá cuando las imágenes no se cargan. Las imágenes decorativas no necesitan texto alternativo (pues no le dan contexto a la página) y deben tener alt=”” (alt vacío, no eliminar el atributo alt).</p>
+<p><a href="http://www.freeimages.co.uk/galleries/workplace/education/slides/computer_learning.htm" target="_blank"><img src="http://www.freeimageslive.com/galleries/workplace/education/preview/computer_learning.jpg" title="Foto de manzana verde sobre una computadora portátil del sitio web www.freeimages.co.uk" alt="Foto de manzana verde sobre una computadora portátil del sitio web www.freeimages.co.uk" width="400" height="266" /></a><br/></p>
+<p>Créditos de la imagen: <a href="http://www.freeimages.co.uk/">Sitio web de imágenes gratuitas FreeImages</a></p>
+<pre><code class="language-html">&lt;a href=&quot;http://www.freeimages.co.uk/galleries/workplace/education/slides/computer_learning.htm&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.freeimageslive.com/galleries/workplace/education/preview/computer_learning.jpg&quot; title=&quot;Foto de manzana verde sobre una computadora portátil del sitio web www.freeimages.co.uk&quot; alt=&quot;Foto de manzana verde sobre una computadora portátil del sitio web www.freeimages.co.uk&quot; width=&quot;400&quot; height=&quot;266&quot; /&gt;&lt;/a&gt;&lt;br/&gt;
+</code></pre>
+<p>Nota: la descripción de la imagen debe ir acorde con el contexto de la información presentada en la web. Ejemplo: si la web es de un negocio de hoteles y se incluye una foto de la parte frontal del hotel, que además incluye autos y personas caminando y un helicóptero que justo pasaba por ese momento junto al hotel es suficiente con indicar en el texto alternativo algo como “Imagen del edificio del hotel en la avenida ABC ciudad de DEF”</p>
+<h2 id="enlaces">Enlaces</h2>
+<p>Los enlaces son interpretados por los lectores de pantalla, como lo que son, vínculos a otros sitios o dentro del mismo sitio y el nombre del enlace debe indicar claramente a que se refiere y describir el contenido al que se va a redirigir al usuario. No usar enlaces llamados "click aquí" o "ir a sitio". No se deben crear enlaces que no vinculen contenido con el fin de dar formato al texto.</p>
+<p><a href="http://www.google.com">Buscador google</a></p>
+<pre><code class="language-html">&lt;a href=”http://www.google.com”&gt;Buscador google&lt;/a&gt;
+</code></pre>
+<h2 id="listados">Listados</h2>
+<p>Utiliza las etiquetas html adecuadas tanto para listas ordenadas y desordenadas. De esta forma le damos sentido semántico a la lista.</p>
+<p>Lista desordenada:</p>
+<ul>
+   <li>Azul</li>
+   <li>Rojo</li>
+   <li>Verde</li>
+</ul>
+
+<pre><code class="language-html">&lt;ul&gt;
+   &lt;li&gt;Azul&lt;/li&gt;
+   &lt;li&gt;Rojo&lt;/li&gt;
+   &lt;li&gt;Verde&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>Lista ordenada:</p>
+<ol>
+   <li>Primero</li>
+   <li>Segundo</li>
+   <li>Tercero</li>
+</ol>
+
+<pre><code class="language-html">&lt;ol&gt;
+   &lt;li&gt;Primero&lt;/li&gt;
+   &lt;li&gt;Segundo&lt;/li&gt;
+   &lt;li&gt;Tercero&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<h2 id="formularios">Formularios</h2>
+<p>Los formularios web deben tener una etiqueta que describa correctamente la función del formulario. El lector de pantalla lee la etiqueta identificatoria. Los controles deben tener la etiqueta <label>. Se utiliza la etiqueta <fieldset> si agrupo elementos. Se deben indicar los errores de forma correcta. Agregar instrucciones sobre cómo completar el formulario, por ejemplo al completar la contraseña qué características debe cumplir.</p>
+<form>  
+<label for="correo">Email:</label>
+<input id="correo" name="correo" type=email aria-required="true">
+
+<label for="password1">Password:</label>
+<input id="password1" name="password1" type=password aria-required="true">
+
+<input type="submit" value="Ingresar">
+</form>
+
+<pre><code class="language-html">&lt;form&gt;  
+&lt;label for=&quot;correo&quot;&gt;Email:&lt;/label&gt;
+&lt;input id=&quot;correo&quot; name=&quot;correo&quot; type=email aria-required=&quot;true&quot;&gt;
+
+&lt;label for=&quot;password1&quot;&gt;Password:&lt;/label&gt;
+&lt;input id=&quot;password1&quot; name=&quot;password1&quot; type=password aria-required=&quot;true&quot;&gt;
+
+&lt;input type=&quot;submit&quot; value=&quot;Ingresar&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h2 id="tablas">Tablas</h2>
+<ul>
+<li>Antes de pensar en etiquetas y atributos html, responde estas preguntas: Realmente necesito una tabla? Puedo reducir el número de filas/columnas? Realmente necesito hacer merge/span (unión) de columnas o filas? </li>
+<li>Utiliza un caption o título a la tabla <caption></li>
+<li>Agrega los atributos de scope en cada fila, para ayudar al usuario lector de pantalla a identificar cada elemento de la tabla</li>
+</ul>
+<table class="table">  <caption>Actividades educativas por día</caption>
+<tr>
+<th scope="col">Horario</th>
+<th scope="col">Lunes</th>
+<th scope="col">Martes</th>
+<th scope="col">Miércoles</th>
+</tr>
+
+<tr>
+<th scope="row">09:00 - 10:00</th>
+<td>Arte</td>
+<td>Matemáticas</td>
+<td>Geografía</td>
+</tr>
+
+<tr>
+<th scope="row">11:00 - 12:00</th>
+<td>Historia</td>
+<td>Química</td>
+<td>Física</td>
+</tr>
+</table>
+
+<pre><code class="language-html">&lt;table class=&quot;table&quot;&gt;  &lt;caption&gt;Actividades educativas por día&lt;/caption&gt;
+
+&lt;tr&gt;
+&lt;th scope=&quot;col&quot;&gt;Horario&lt;/th&gt;
+&lt;th scope=&quot;col&quot;&gt;Lunes&lt;/th&gt;
+&lt;th scope=&quot;col&quot;&gt;Martes&lt;/th&gt;
+&lt;th scope=&quot;col&quot;&gt;Miércoles&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;th scope=&quot;row&quot;&gt;09:00 - 10:00&lt;/th&gt;
+&lt;td&gt;Arte&lt;/td&gt;
+&lt;td&gt;Matemáticas&lt;/td&gt;
+&lt;td&gt;Geografía&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;th scope=&quot;row&quot;&gt;11:00 - 12:00&lt;/th&gt;
+&lt;td&gt;Historia&lt;/td&gt;
+&lt;td&gt;Química&lt;/td&gt;
+&lt;td&gt;Física&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+Sitio web hecho por <a href="https://dalatcomunidad.org">DALAT</a>
+
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Buscar</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Ingrese palabras a buscar</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Buscar..." id="mkdocs-search-query" title="Escriba aquí">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No se encontraron resultados"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
