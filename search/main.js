@@ -31,15 +31,19 @@ function displayResults (results) {
     search_results.removeChild(search_results.firstChild);
   }
   if (results.length > 0){
+ 	console.log("si hay resultados");
+      fun_notificar_texto("cantidad de resultados: " + results.length);
     for (var i=0; i < results.length; i++){
       var result = results[i];
       var html = formatResult(result.location, result.title, result.summary);
       search_results.insertAdjacentHTML('beforeend', html);
     }
   } else {
+	console.log("no hay resultados para la búsqueda");
+      fun_notificar_texto("no hay resultados para la búsqueda");
     var noResultsText = search_results.getAttribute('data-no-results-text');
     if (!noResultsText) {
-      noResultsText = "No results found";
+      noResultsText = "no hay resultados";
     }
     search_results.insertAdjacentHTML('beforeend', '<p>' + noResultsText + '</p>');
   }

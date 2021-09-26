@@ -18,10 +18,54 @@
         <script src="../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
+      
+        <script>
+            var agregar_punto = false;
+            
+            function fun_notificar_texto(input_text) {
+                // esta función hace que un texto sea anunciado por el lector de pantalla
+                // se añade un punto al final del texto porque el lector no anuncia el texto si se envía el mismo dos veces
+                agregar_punto = !agregar_punto;
+                if (agregar_punto)
+                    {
+                    input_text = input_text + ".";
+                    }
+                document.getElementById("div_notify_text").innerHTML = input_text;
+            }
+			
+			function addNoOpener(link) {
+                // este es un fix de seguridad. Ver explicación en   https://web.dev/external-anchors-use-rel-noopener/
+			  let linkTypes = (link.getAttribute('rel') || '').split(' ');
+			  if (!linkTypes.includes('noopener')) {
+				linkTypes.push('noopener');
+			  }
+			  link.setAttribute('rel', linkTypes.join(' ').trim());
+			}
+
+			function addNewTabMessage(link) {
+                // esto es para que el lector de pantalla anuncie que un enlace se abrirá en una ventana nueva
+			  if (!link.querySelector('.sr-only')) {
+				link.insertAdjacentHTML('beforeend', '<span class="sr-only">(abre en nueva ventana)</span>');
+			  }
+			}			
+        </script>
+
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+
+    <div id="skipdiv">
+        
+        
+        <a href="#accesibilidad-html">
+            Saltar a contenido
+        </a>
+        	
+    </div>
+
+    <div id="div_notify_text" aria-live="assertive" class="sr-only" aria-relevant="all"></div>
+
+        <div role="navigation" aria-label="Cabecera" class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="..">DALAT Git Web</a>
                 <!-- Expander button -->
@@ -34,7 +78,7 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href=".." class="nav-link">Bienvenidos</a>
+                                <a href=".." class="nav-link">Inicio</a>
                             </li>
                             <li class="navitem active">
                                 <a href="./" class="nav-link">Accesibilidad HTML</a>
@@ -147,7 +191,7 @@
 <p>Podemos utilizar la etiqueta <alt> para añadir un texto alternativo a las imágenes, el cual debe ser una descripción de la misma.
 Esto también sirve, no solo para utilizarse con el lector de pantalla, sino en el caso de por ejemplo conexiones lentas, dicha descripción aparecerá cuando las imágenes no se cargan. Las imágenes decorativas no necesitan texto alternativo (pues no le dan contexto a la página) y deben tener alt=”” (alt vacío, no eliminar el atributo alt).</p>
 <p><a href="http://www.freeimages.co.uk/galleries/workplace/education/slides/computer_learning.htm" target="_blank"><img src="http://www.freeimageslive.com/galleries/workplace/education/preview/computer_learning.jpg" title="Foto de manzana verde sobre una computadora portátil del sitio web www.freeimages.co.uk" alt="Foto de manzana verde sobre una computadora portátil del sitio web www.freeimages.co.uk" width="400" height="266" /></a><br/></p>
-<p>Créditos de la imagen: <a href="http://www.freeimages.co.uk/">Sitio web de imágenes gratuitas FreeImages</a></p>
+<p>Créditos de la imagen: <a href="http://www.freeimages.co.uk/" target="_blank">Sitio web de imágenes gratuitas FreeImages</a></p>
 <pre><code class="language-html">&lt;a href=&quot;http://www.freeimages.co.uk/galleries/workplace/education/slides/computer_learning.htm&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.freeimageslive.com/galleries/workplace/education/preview/computer_learning.jpg&quot; title=&quot;Foto de manzana verde sobre una computadora portátil del sitio web www.freeimages.co.uk&quot; alt=&quot;Foto de manzana verde sobre una computadora portátil del sitio web www.freeimages.co.uk&quot; width=&quot;400&quot; height=&quot;266&quot; /&gt;&lt;/a&gt;&lt;br/&gt;
 </code></pre>
 <p>Nota: la descripción de la imagen debe ir acorde con el contexto de la información presentada en la web. Ejemplo: si la web es de un negocio de hoteles y se incluye una foto de la parte frontal del hotel, que además incluye autos y personas caminando y un helicóptero que justo pasaba por ese momento junto al hotel es suficiente con indicar en el texto alternativo algo como “Imagen del edificio del hotel en la avenida ABC ciudad de DEF”</p>
@@ -334,6 +378,14 @@ Sitio web hecho por <a href="https://dalatcomunidad.org">DALAT</a>
         </div>
     </div>
 </div>
+
+        
+        <script>
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            addNoOpener(link);
+            addNewTabMessage(link);
+            });
+        </script>
 
     </body>
 </html>

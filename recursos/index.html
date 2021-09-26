@@ -18,10 +18,54 @@
         <script src="../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
+      
+        <script>
+            var agregar_punto = false;
+            
+            function fun_notificar_texto(input_text) {
+                // esta función hace que un texto sea anunciado por el lector de pantalla
+                // se añade un punto al final del texto porque el lector no anuncia el texto si se envía el mismo dos veces
+                agregar_punto = !agregar_punto;
+                if (agregar_punto)
+                    {
+                    input_text = input_text + ".";
+                    }
+                document.getElementById("div_notify_text").innerHTML = input_text;
+            }
+			
+			function addNoOpener(link) {
+                // este es un fix de seguridad. Ver explicación en   https://web.dev/external-anchors-use-rel-noopener/
+			  let linkTypes = (link.getAttribute('rel') || '').split(' ');
+			  if (!linkTypes.includes('noopener')) {
+				linkTypes.push('noopener');
+			  }
+			  link.setAttribute('rel', linkTypes.join(' ').trim());
+			}
+
+			function addNewTabMessage(link) {
+                // esto es para que el lector de pantalla anuncie que un enlace se abrirá en una ventana nueva
+			  if (!link.querySelector('.sr-only')) {
+				link.insertAdjacentHTML('beforeend', '<span class="sr-only">(abre en nueva ventana)</span>');
+			  }
+			}			
+        </script>
+
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+
+    <div id="skipdiv">
+        
+        
+        <a href="#recursos">
+            Saltar a contenido
+        </a>
+        	
+    </div>
+
+    <div id="div_notify_text" aria-live="assertive" class="sr-only" aria-relevant="all"></div>
+
+        <div role="navigation" aria-label="Cabecera" class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="..">DALAT Git Web</a>
                 <!-- Expander button -->
@@ -34,7 +78,7 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href=".." class="nav-link">Bienvenidos</a>
+                                <a href=".." class="nav-link">Inicio</a>
                             </li>
                             <li class="navitem">
                                 <a href="../accesibilidad_html/" class="nav-link">Accesibilidad HTML</a>
@@ -99,7 +143,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#personas-a-seguir-en-redes" class="nav-link">Personas a seguir en redes</a>
+            <li class="nav-item" data-level="2"><a href="#personas-a-tener-en-cuenta" class="nav-link">Personas a tener en cuenta</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -114,31 +158,32 @@
 <p>Aquí encontrarás recursos interesantes relacionados con accesibilidad y programación</p>
 <h2 id="aprender-sobre-accesibilidad">Aprender sobre accesibilidad</h2>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=7O9ehOyI3yk">Curso de DALAT: Mundo Digital Accesible</a></li>
-<li><a href="https://www.udemy.com/course/aprende-accesibilidad-web-paso-a-paso/">Curso de accesibilidad de Udemy</a></li>
-<li><a href="https://olgacarreras.blogspot.com/2018/11/libro-accesibilidad-web-wcag-21-de.html">Libro de Olga Carreras sobre accesibilidad web</a></li>
+<li><a href="https://www.youtube.com/watch?v=7O9ehOyI3yk" target="_blank">Curso de DALAT: Mundo Digital Accesible</a></li>
+<li><a href="https://www.udemy.com/course/aprende-accesibilidad-web-paso-a-paso/" target="_blank">Curso de accesibilidad de Udemy</a></li>
+<li><a href="https://olgacarreras.blogspot.com/2018/11/libro-accesibilidad-web-wcag-21-de.html" target="_blank">Libro de Olga Carreras sobre accesibilidad web</a></li>
 </ul>
 <h2 id="aprender-sobre-programacion">Aprender sobre programación</h2>
 <ul>
-<li><a href="https://www.tutorialesprogramacionya.com/">Web con tutoriales de programación, incluye java, python, html, css entre otros</a></li>
-<li><a href="https://www.oulub.com/es-ES/Reactjs/accessibility">Accesibilidad web con React</a></li>
+<li><a href="https://www.tutorialesprogramacionya.com/" target="_blank">Web con tutoriales de programación, incluye java, python, html, css entre otros</a></li>
+<li><a href="https://www.oulub.com/es-ES/Reactjs/accessibility" target="_blank">Accesibilidad web con React</a></li>
 </ul>
 <h2 id="comunidades-amigas">Comunidades amigas</h2>
 <ul>
-<li><a href="https://www.itgrarte.org/capacitacion/">La fundación ITGRARTE brinda cursos de programación y otros temas afines interesantes y otorga becas</a></li>
+<li><a href="https://www.itgrarte.org/capacitacion/" target="_blank">La fundación ITGRARTE brinda cursos de programación y otros temas afines interesantes y otorga becas</a></li>
 <li><a href="https://www.programandoaccesible.tk/">Programando Accesible</a> También te puedes agregar a su grupo whatsapp con este enlace https://chat.whatsapp.com/7IJaTXOlv1d7VSfjaqwYIh</li>
-<li><a href="https://groups.google.com/g/programacionaccesible/about">Lista de correo de programación accesible</a></li>
-<li><a href="https://www.facebook.com/groups/1203789039957113/">A11y Perú</a></li>
+<li><a href="https://groups.google.com/g/programacionaccesible/about" target="_blank">Lista de correo de programación accesible</a></li>
+<li><a href="https://www.facebook.com/groups/1203789039957113/" target="_blank">A11y Perú</a></li>
 </ul>
 <h2 id="aprender-sobre-markdown">Aprender sobre Markdown</h2>
 <ul>
-<li><a href="https://www.udemy.com/course/aprenda-markdown-desde-cero/">Curso Markdown desde cero</a></li>
-<li><a href="https://tecnoconocimientoaccesible.blogspot.com/2020/12/markdown-como-usarlo-para-crear-html-de.html">Blog de Tecno concomiento accesible tocando el tema markdown</a></li>
-<li><a href="https://www.youtube.com/watch?v=3K-aFgctmkk">Tutorial en video de Markdown de Tecno conocimiento accesible</a></li>
+<li><a href="https://www.udemy.com/course/aprenda-markdown-desde-cero/" target="_blank">Curso Markdown desde cero</a></li>
+<li><a href="https://tecnoconocimientoaccesible.blogspot.com/2020/12/markdown-como-usarlo-para-crear-html-de.html" target="_blank">Blog de Tecno concomiento accesible tocando el tema markdown</a></li>
+<li><a href="https://www.youtube.com/watch?v=3K-aFgctmkk" target="_blank">Tutorial en video de Markdown de Tecno conocimiento accesible</a></li>
 </ul>
-<h2 id="personas-a-seguir-en-redes">Personas a seguir en redes</h2>
+<h2 id="personas-a-tener-en-cuenta">Personas a tener en cuenta</h2>
 <ul>
-<li><a href="https://www.laizquierdadiario.com/Escribiendo-a-ciegas-en-Android">Katherine Vargas, programadora ciega de Argentina</a></li>
+<li><a href="https://www.laizquierdadiario.com/Escribiendo-a-ciegas-en-Android" target="_blank">Katherine Vargas, programadora ciega de Argentina</a></li>
+<li>Valeria Rocha, Ximena Romero y Katherine Vargas nos cuenta en su <a href="https://www.youtube.com/watch?v=drgPyyys2sQ" target="_blank">Charla: Desarrollo, usabilidad y accesibilidad con lectores de pantalla</a> del evento FemIT CONF 2021 la importancia de pensar las aplicaciones con perspectiva de accesibilidad para que no sean una barrera para las personas que utilizan lectores de pantalla. Enseñar, desarrollar y testear desde el punto de vista de personas con discapacidad visual.</li>
 </ul></div>
             </div>
         </div>
@@ -214,6 +259,14 @@ Sitio web hecho por <a href="https://dalatcomunidad.org">DALAT</a>
         </div>
     </div>
 </div>
+
+        
+        <script>
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            addNoOpener(link);
+            addNewTabMessage(link);
+            });
+        </script>
 
     </body>
 </html>

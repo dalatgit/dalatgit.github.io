@@ -1,2 +1,2 @@
 # dalatgit.github.io
-Sitio web del repositorio git de DALAT
+Sitio web (github pages) del repositorio git de DALAT. Es la [web del git de DALAT](https://dalatgit.github.io/)

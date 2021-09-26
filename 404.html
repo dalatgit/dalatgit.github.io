@@ -18,10 +18,49 @@
         <script src="/js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
+      
+        <script>
+            var agregar_punto = false;
+            
+            function fun_notificar_texto(input_text) {
+                // esta función hace que un texto sea anunciado por el lector de pantalla
+                // se añade un punto al final del texto porque el lector no anuncia el texto si se envía el mismo dos veces
+                agregar_punto = !agregar_punto;
+                if (agregar_punto)
+                    {
+                    input_text = input_text + ".";
+                    }
+                document.getElementById("div_notify_text").innerHTML = input_text;
+            }
+			
+			function addNoOpener(link) {
+                // este es un fix de seguridad. Ver explicación en   https://web.dev/external-anchors-use-rel-noopener/
+			  let linkTypes = (link.getAttribute('rel') || '').split(' ');
+			  if (!linkTypes.includes('noopener')) {
+				linkTypes.push('noopener');
+			  }
+			  link.setAttribute('rel', linkTypes.join(' ').trim());
+			}
+
+			function addNewTabMessage(link) {
+                // esto es para que el lector de pantalla anuncie que un enlace se abrirá en una ventana nueva
+			  if (!link.querySelector('.sr-only')) {
+				link.insertAdjacentHTML('beforeend', '<span class="sr-only">(abre en nueva ventana)</span>');
+			  }
+			}			
+        </script>
+
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+
+    <div id="skipdiv">
+        	
+    </div>
+
+    <div id="div_notify_text" aria-live="assertive" class="sr-only" aria-relevant="all"></div>
+
+        <div role="navigation" aria-label="Cabecera" class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="/.">DALAT Git Web</a>
                 <!-- Expander button -->
@@ -34,7 +73,7 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href="/." class="nav-link">Bienvenidos</a>
+                                <a href="/." class="nav-link">Inicio</a>
                             </li>
                             <li class="navitem">
                                 <a href="/accesibilidad_html/" class="nav-link">Accesibilidad HTML</a>
@@ -143,6 +182,14 @@
         </div>
     </div>
 </div>
+
+        
+        <script>
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            addNoOpener(link);
+            addNewTabMessage(link);
+            });
+        </script>
 
     </body>
 </html>
